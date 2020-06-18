@@ -21,11 +21,11 @@ Route::get('/', 'PagesController@home');
 
 Route::get('/admin', 'StudentController@index');
 
+//Route::resource('admin', 'StudentController');
+
 Route::get('/admin/create', 'StudentController@create');
 Route::get('/admin/{student}', 'StudentController@show');
 Route::post('/admin', 'StudentController@store');
 Route::delete('/admin/{std}', 'StudentController@destroy')->name('admin.destroy');
-Route::get('/admin/{student}/edit', 'StudentController@edit');
-Route::patch('/admin/{student}', 'StudentController@update');
-
-// Route::resource('admin', 'StudentController');
+Route::get('/admin/{std}/edit', 'StudentController@edit')->name('admin.edit');
+Route::patch('/admin/{std}', 'StudentController@update');

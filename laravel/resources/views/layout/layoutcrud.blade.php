@@ -31,14 +31,14 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="">Admin</a>
-                <a class="navbar-brand hidden" href="">M</a>
+                <a class="navbar-brand" href="/">Admin</a>
+                <a class="navbar-brand hidden" href="/">A</a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="{{ url ('/') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Home</a>
+                        <a href="{{ url ('/') }}"> <i class="menu-icon fa fa-home"></i>Home</a>
                         <a href="{{ url ('/admin') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Admin</a>
                     </li>
                 </ul>

@@ -7,12 +7,12 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <h1 class="mt-3">form tambah data Mahasiswa</h1>
+            <h1 class="mt-3">Form Tambah Data Mahasiswa</h1>
             <form method="post" action="/admin">
                 @csrf
                 <div class="form-group">
                     <label for="nama">nama</label>
-                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="masukan nama" name="nama" value="{{ old('nama') }}">
+                    <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukan Nama" name="nama" value="{{ old('nama') }}">
                     @error('nama')
                     <div>
                         {{$message}}
@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     <label for="nim">NIM</label>
-                    <input type="text" class="form-control @error('nim') is-invalid @enderror" id="nim" placeholder="masukan nim" name="nim" value="{{ old('nim') }}">
+                    <input type="text" class="form-control @error('nim') is-invalid @enderror" id="nim" placeholder="Masukan Nim" name="nim" value="{{ old('nim') }}">
                     @error('nim')
                     <div>
                         {{$message}}
@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label for="email">Keterangan</label>
-                    <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" placeholder="masukan keterangan" name="keterangan" value="{{ old('keterangan') }}">
+                    <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" placeholder="Masukan Keterangan" name="keterangan" value="{{ old('keterangan') }}">
                     @error('keterangan')
                     <div>
                         {{$message}}

@@ -32,18 +32,19 @@
                     <td>{{ $std->nama }}</td>
                     <td>{{ $std->nim }}</td>
                     <td>
-                        <a href="" class="badge badge-success">Edit</a>
-                        <a href="/admin/{{ $std->id }}" class="badge badge-info">Detail</a>
-                        <form action="{{ route('admin.destroy',[$std->id]) }}" method="post" class="d-inline">
+                        <form action="{{ route('admin.destroy',[$std->id]) }}" method="post">
+                        <a href="{{ route('admin.edit',[$std->id]) }}" class="btn btn-sm btn-success">Edit</a>
+                        <a href="/admin/{{ $std->id }}" class="btn btn-sm btn-info">Detail</a>
                             @method('delete')
                             @csrf
-                            <button type="submit" class="badge badge-danger">Delete</button>
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                         </form>
                     </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
+            {{ $student->links() }}
         </div>
     </div>
 </div>

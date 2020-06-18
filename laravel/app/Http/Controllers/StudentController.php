@@ -15,7 +15,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $student = Student::all();
+        $student = Student::paginate(5);
         return view('admin.index', compact('student'));
     }
 
@@ -64,9 +64,9 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit(Student $std)
     {
-        //
+        return view('admin.edit', compact('std'));
     }
 
     /**
@@ -76,9 +76,22 @@ class StudentController extends Controller
      * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, Student $std)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'nim' => 'required',
+            'keterangan' => 'required'
+        ]);
+
+        Student::where('id', $std->id)
+            ->update([
+                'nama' => $request->nama,
+                'nim' => $request->nim,
+                'keterangan' => $request->keterangan
+            ]);
+
+        return redirect('/admin')->with('status', 'Data Mahasiswa Berhasil di Ubah');
     }
 
     /**

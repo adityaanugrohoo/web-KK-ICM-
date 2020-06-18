@@ -27,6 +27,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $student->links() }}
         </div>
     </div>
 </div>
