@@ -16,13 +16,20 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('main');
 // });
-
 Route::get('/', 'PagesController@home');
 
+Route::get('/auths/login', 'AuthController@login')->name('login');
+Route::get('/logout', 'AuthController@logout');
+Route::post('/postlogin', 'AuthController@postlogin');
+
+
+Route::get('/admin/admin', 'PagesController@admin')->middleware('auth');
 Route::get('/admin', 'StudentController@index');
 
 //Route::resource('admin', 'StudentController');
 
+// Route::group(['middleware' => 'auth'], function () {
+// });
 Route::get('/admin/create', 'StudentController@create');
 Route::get('/admin/{student}', 'StudentController@show');
 Route::post('/admin', 'StudentController@store');

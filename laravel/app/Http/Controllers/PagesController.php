@@ -10,6 +10,11 @@ class PagesController extends Controller
 {
     public function home()
     {
+        return view('public.index');
+    }
+
+    public function admin()
+    {
         // $student = DB::table('students')->get();
         $student = Student::paginate(5);
         return view('admin.admin', compact('student'));

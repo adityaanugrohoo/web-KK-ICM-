@@ -38,8 +38,9 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="{{ url ('/') }}"> <i class="menu-icon fa fa-home"></i>Home</a>
+                        <a href="{{ url ('/admin/admin') }}"> <i class="menu-icon fa fa-home"></i>Home</a>
                         <a href="{{ url ('/admin') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Admin</a>
+                        <a href="{{ url ('/logout') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Log Out</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
