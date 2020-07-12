@@ -40,6 +40,7 @@
                     <li>
                         <a href="{{ url ('/admin/admin') }}"> <i class="menu-icon fa fa-home"></i>Home</a>
                         <a href="{{ url ('/admin') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Admin</a>
+                        <a href="{{ url ('/admin/showall') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>View Data</a>
                         <a href="{{ url ('/logout') }}"> <i class="menu-icon fa fa-puzzle-piece"></i>Log Out</a>
                     </li>
                 </ul>

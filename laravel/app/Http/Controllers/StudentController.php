@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
+use App\User;
 use App\Student;
 
 class StudentController extends Controller
@@ -24,6 +26,12 @@ class StudentController extends Controller
         return view('admin.index', compact('student'));
     }
 
+    public function showall()
+    {
+        $student = Student::paginate(5);
+        return view('admin/showall', compact('student'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -42,13 +50,24 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         $request->validate([
             'nama' => 'required',
             'nim' => 'required',
             'keterangan' => 'required'
         ]);
+        $student = new Student;
+        if ($request->hasFile('pdf')) {
+            $request->file('pdf')->move('pdf/', $request->file('pdf')->getClientOriginalName());
+            $student->pdf = $request->file('pdf')->getClientOriginalName();
+        }
+        $student->nama = $request->input('nama');
+        $student->nim = $request->input('nim');
+        $student->keterangan = $request->input('keterangan');
+        $student->user_id = auth()->user()->id;
+        $student->save();
 
-        Student::create($request->all());
+        //Student::create($request->all());
         return redirect('/admin')->with('status', 'Data Mahasiswa Berhasil Ditambahkan');
     }
 

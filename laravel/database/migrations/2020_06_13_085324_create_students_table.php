@@ -18,6 +18,7 @@ class CreateStudentsTable extends Migration
             $table->string('nama');
             $table->string('nim', 10)->unique();
             $table->string('keterangan');
+            $table->string('pdf');
             $table->timestamps();
         });
     }

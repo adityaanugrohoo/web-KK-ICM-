@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,7 @@ Route::post('/postlogin', 'AuthController@postlogin');
 
 Route::get('/admin/admin', 'PagesController@admin')->middleware('auth');
 Route::get('/admin', 'StudentController@index');
+Route::get('/admin/showall', 'StudentController@showall');
 
 //Route::resource('admin', 'StudentController');
 
@@ -32,7 +34,7 @@ Route::get('/admin', 'StudentController@index');
 // });
 Route::get('/admin/create', 'StudentController@create');
 Route::get('/admin/{student}', 'StudentController@show');
-Route::post('/admin', 'StudentController@store');
+Route::post('/admin', 'StudentController@store')->name('admin.store');
 Route::delete('/admin/{std}', 'StudentController@destroy')->name('admin.destroy');
 Route::get('/admin/{std}/edit', 'StudentController@edit')->name('admin.edit');
 Route::patch('/admin/{std}', 'StudentController@update');
